@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Info Form</title>
+  <style>
+    form div {
+      margin-bottom: 10px;
+    }
+
+    label, input {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <form action="/submit" method="post">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+    </div>
+
+    <div>
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city">
+    </div>
+
+    <div>
+      <label for="pincode">Pincode:</label>
+      <input type="text" id="pincode" name="pincode">
+    </div>
+
+    <div>
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</body>
+</html>
+

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Faulty Calculator</title>
+  <style>
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; padding: 24px; max-width: 720px; margin: auto; }
+    .row { display:flex; gap:8px; align-items:center; margin-bottom:10px; }
+    input[type="number"]{ width:120px; padding:6px; }
+    select { padding:6px; }
+    button { padding:8px 12px; cursor:pointer; }
+    .result { margin-top:12px; padding:10px; border-radius:8px; background:#f3f3f3; }
+  </style>
+</head>
+<body>
+  <h1>Faulty Calculator (10% chance of error)</h1>
+
+  <div class="row">
+    <label>
+      Number A:
+      <input id="a" type="number" step="any" value="2" />
+    </label>
+
+    <label>
+      Operator:
+      <select id="op">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+    </label>
+
+    <label>
+      Number B:
+      <input id="b" type="number" step="any" value="3" />
+    </label>
+
+    <button id="calc">Calculate</button>
+  </div>
+
+  <div class="result" id="out" aria-live="polite">
+    Result will appear here.
+  </div>
+
+  <script>
+    // Fault mapping: when fault occurs, original -> mapped operator
+    const FAULT_MAP = {
+      '+': '-',
+      '*': '+',
+      '-': '/',
+      '/': '**' // exponentiation
+    };
+
+    const calcBtn = document.getElementById('calc');
+    const out = document.getElementById('out');
+
+    function performOperation(a, b, operator) {
+      // Perform the operation that operator string indicates.
+      // operator can be '+', '-', '*', '/', or '**'
+      switch (operator) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/':
+          if (b === 0) return Infinity; // keep simple behaviour
+          return a / b;
+        case '**':
+          // exponentiation: a ** b
+          // Use Math.pow for safety across environments
+          return Math.pow(a, b);
+        default:
+          return NaN;
+      }
+    }
+
+    calcBtn.addEventListener('click', () => {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      const originalOp = document.getElementById('op').value;
+
+      if (Number.isNaN(a) || Number.isNaN(b)) {
+        out.textContent = 'Please enter valid numbers for A and B.';
+        return;
+      }
+
+      // Decide whether to inject a fault (10% chance)
+      const rand = Math.random(); // uniform in [0,1)
+      const isFaulty = rand < 0.10; // 10% chance
+
+      // Choose which operator to use: either original or faulty mapped op
+      const usedOp = isFaulty ? FAULT_MAP[originalOp] : originalOp;
+
+      // Compute result
+      const result = performOperation(a, b, usedOp);
+
+      // Present the result and an explanation
+      const explanation = isFaulty
+        ? `⚠️ Fault triggered (10%). Performed "${usedOp}" instead of "${originalOp}".`
+        : `✅ Correct operation. Performed "${originalOp}".`;
+
+      // Nicely format Infinity and NaN
+      const resultDisplay = (result === Infinity) ? 'Infinity (division by zero)' :
+                            (Number.isNaN(result) ? 'NaN' : result);
+
+      out.innerHTML = `
+        <strong>Input:</strong> ${a} ${originalOp} ${b} <br/>
+        <strong>${isFaulty ? 'Actual (faulty) operation' : 'Actual operation'}:</strong> ${a} ${usedOp} ${b} <br/>
+        <strong>Result:</strong> ${resultDisplay} <br/>
+        <em>${explanation}</em>
+      `;
+    });
+  </script>
+</body>
+</html>

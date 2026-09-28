@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables </title>
+    <style>
+
+
+ /* root is the global variable here you can change the color easily every where in the website because of this  */
+        :root {
+            --color: blue;
+            --secolor: rgb(60, 119, 54);
+            --defpad :45px;
+        }
+
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+
+        ul {
+            display: flex;
+        }
+
+
+
+
+        ul li {
+            opacity: 0.5;
+            list-style: none;
+            padding: var(--defpad);
+            border: 12px solid var(--secolor);
+        }
+
+
+
+        ul li:first-child{
+           --color: rgb(221, 255, 27);
+            background-color: var(--color , red);
+        }
+
+        .nav {
+            background-color: var(--color);
+        }
+
+        .container {
+            background-color: var(--secolor);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+
+        <ul>
+            <li>Home </li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+
+
+        <div class="container">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto beatae ratione qui
+            nisi, debitis eligendi, nostrum dignissimos maxime ut veniam deserunt totam inventore dolorem omnis? Ipsam
+            aspernatur voluptatum voluptatem temporibus iste aperiam accusamus error culpa explicabo earum hic, ab,
+            ipsum reiciendis cupiditate iure eligendi repellendus!</div>
+
+
+
+    </div>
+</body>
+
+</html>

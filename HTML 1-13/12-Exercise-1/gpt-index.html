@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise-1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        header, footer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .media-section {
+            margin-bottom: 30px;
+        }
+
+        .media-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        audio, video {
+            display: block;
+        }
+
+        p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Media Player</h2>
+    </header>
+
+    <main>
+        <!-- Audio Section -->
+        <div class="media-section">
+            <p>Audio Files (mp3)</p>
+            <div class="media-grid">
+                <audio src="mp3/1.mp3" controls></audio>
+                <audio src="mp3/2.mp3" controls></audio>
+                <audio src="mp3/3.mp3" controls></audio>
+                <audio src="mp3/4.mp3" controls></audio>
+                <audio src="mp3/5.mp3" controls></audio>
+                <audio src="mp3/6.mp3" controls></audio>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="media-section">
+            <p>Video Files (mp4)</p>
+            <div class="media-grid">
+                <video src="mp4/1.mp4" controls width="220" height="150"></video>
+                <video src="mp4/2.mp4" controls width="220" height="150"></video>
+                <video src="mp4/3.mp4" controls width="220" height="150"></video>
+                <video src="mp4/4.mp4" controls width="220" height="150"></video>
+                <video src="mp4/5.mp4" controls width="220" height="150"></video>
+                <video src="mp4/6.mp4" controls width="220" height="150"></video>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        CopyRight | All CopyRight Reserved
+    </footer>
+</body>
+</html>

@@ -1,0 +1,23 @@
+ only rough line of code will be displayed here 
+ 
+  line 54
+  <hr class="divider">
+
+
+
+  /* ===== Global ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b0c10;
+    color: #c5c6c7;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}

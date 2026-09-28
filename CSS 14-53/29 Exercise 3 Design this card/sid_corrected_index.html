@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Design Final</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background-color: #e6f0f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .layout {
+      background-color: #fff;
+      border-radius: 20px;
+      width: 320px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .layout:hover {
+      transform: translateY(-5px);
+    }
+
+    .img {
+      width: 100%;
+      border-radius: 15px;
+      display: block;
+      margin-bottom: 15px;
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .text {
+      margin-bottom: 10px;
+    }
+
+    .text span {
+      background-color: #f2f4f7;
+      color: #555;
+      font-size: 12px;
+      padding: 5px 10px;
+      border-radius: 50px;
+      margin-right: 8px;
+      display: inline-block;
+    }
+
+    .para h1 {
+      color: #222;
+      font-size: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .para p {
+      font-size: 14px;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+
+    .read-btn {
+      display: inline-block;
+      background-color: #e0ebff;
+      color: #0077ff;
+      border: none;
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .read-btn:hover {
+      background-color: #c8dcff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <img class="img" src="mountain img.jpg" alt="Lago di Braies">
+
+    <div class="text">
+      <span>Nature</span>
+      <span>Lake</span>
+    </div>
+
+    <div class="para">
+      <h1>Lago di Braies</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum adipisci quidem quo fugiat neque laborum
+        voluptates facere laboriosam ad expedita?</p>
+    </div>
+
+    <a href="#" class="read-btn">Read More</a>
+  </div>
+</body>
+</html>

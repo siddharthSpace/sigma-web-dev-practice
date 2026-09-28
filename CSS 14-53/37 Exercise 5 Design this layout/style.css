@@ -1,0 +1,282 @@
+/* ========== GLOBAL VARIABLES ========== */
+:root {
+    --nav-bg: #1f1f1f;
+    --accent: #4a90e2;
+    --body-bg: #f5f5f5;
+    --pink-box: #e0e0e0;
+    --blue-box: #d1e0f0;
+    --curved-bg: #ffffff;
+    --text-color: #333333;
+    --footer-bg: #1f1f1f;
+    --circle-color: #4a90e2;
+    --font: "Poppins", sans-serif;
+}
+
+/* ========== BASE STYLES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    background-color: var(--body-bg);
+    color: var(--text-color);
+}
+
+/* ========== NAVBAR ========== */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--nav-bg);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #cccccc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* ========== HAMBURGER MENU ========== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ========== BODY ========== */
+.main-content {
+    background-color: var(--body-bg);
+    padding: 60px 40px;
+    min-height: 100vh;
+}
+
+/* Boxes Section */
+.boxes-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 260px;
+    height: 260px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pink-box {
+    background-color: var(--pink-box);
+}
+
+.blue-box {
+    background-color: var(--blue-box);
+}
+
+/* Curved Bar */
+.curved-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.curved-box {
+    background-color: var(--curved-bg);
+    border: 1px solid #ddd;
+    border-radius: 35px;
+    padding: 25px 45px;
+    width: 75%;
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Scrollable Content */
+.scroll-content {
+    padding: 25px;
+    color: #444;
+    line-height: 1.8;
+    max-width: 850px;
+    margin: auto;
+}
+
+/* ========== FLOATING CIRCLE ========== */
+.floating-circle {
+    position: fixed;
+    right: 40px;
+    bottom: 60px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--circle-color);
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(74, 144, 226, 0.6);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(74, 144, 226, 0.8);
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: var(--footer-bg);
+    text-align: center;
+    padding: 20px;
+    color: #aaaaaa;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 900px) {
+    .curved-box {
+        width: 90%;
+        padding: 20px;
+        font-size: 0.95rem;
+    }
+
+    .box {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0; /* 👈 Shift menu to the left side */
+        background-color: var(--nav-bg);
+        width: 75%; /* 👈 Optional: only take part of the width */
+        flex-direction: column;
+        align-items: flex-start; /* 👈 Align text to left */
+        display: none;
+        gap: 20px;
+        padding: 25px;
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        padding: 15px 20px;
+        justify-content: space-between;
+    }
+
+    .main-content {
+        padding: 40px 20px;
+    }
+
+    .curved-box {
+        border-radius: 25px;
+    }
+
+
+    .nav-links li {
+    width: 100%;
+}
+
+.nav-links a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    text-align: left;
+    color: #cccccc;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+    padding-left: 10px; /* subtle hover shift */
+    transition: 0.3s;
+}
+
+}
+
+
+@media (max-width: 480px) {
+    .box {
+        width: 160px;
+        height: 160px;
+    }
+
+    .curved-box {
+        width: 95%;
+        padding: 15px;
+        font-size: 0.9rem;
+    }
+
+    .floating-circle {
+        width: 45px;
+        height: 45px;
+        right: 20px;
+        bottom: 40px;
+    }
+}
+

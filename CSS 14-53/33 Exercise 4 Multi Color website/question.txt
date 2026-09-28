@@ -1,0 +1,4 @@
+Multicolor navbar
+Design a navbar
+create a style sheet 
+make a global veriables through which you can change the contrast of the color 

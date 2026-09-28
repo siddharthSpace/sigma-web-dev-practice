@@ -1,0 +1,123 @@
+<!-- // Create a business name generator by combining list  of adjective and shop name and another word 
+
+// adjective :
+// Crazy
+// Amazing
+// Fire
+
+// Shopname :
+
+// Engine
+// foods 
+// Garments 
+
+
+// Another Word :
+// Bros 
+// Limited 
+// Hub 
+
+
+// no array use  -->
+
+<!-- Save this as index.html and save the CSS below as styles.css in the same folder -->
+
+<!-- Save this as index.html and save the CSS below as styles.css in the same folder -->
+
+<!-- ========== index.html ========== -->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Business Name Generator — Siddharth</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <main class="card">
+        <header>
+            <h1>Business Name Generator</h1>
+            <!-- <p class="subtitle">Mix user-input adjective, shop name & another word (no arrays used)</p> -->
+        </header>
+
+        <form id="controls" onsubmit="return false;">
+            <label>
+                Adjective:
+                <input type="text" id="adj" placeholder="e.g. Crazy" required>
+            </label>
+            <label>
+                Shop Name:
+                <input type="text" id="shop" placeholder="e.g. Engine" required>
+            </label>
+            <label>
+                Another Word:
+                <input type="text" id="suffix" placeholder="e.g. Bros" required>
+            </label>
+            <label>
+                How many names?
+                <input id="count" type="number" min="1" max="20" value="5">
+            </label>
+
+            <div class="buttons">
+                <button id="generate">Generate</button>
+                <button id="copy" type="button">Copy All</button>
+            </div>
+        </form>
+
+        <section id="results" aria-live="polite"></section>
+
+        <footer>
+            <p>© <span id="year"></span> All rights reserved. Designed &amp; Developed by <strong>Siddharth
+                    Kesralikar</strong>.</p>
+        </footer>
+    </main>
+
+    <script>
+        function rand(n) { return Math.floor(Math.random() * n); }
+
+        function composeName(adj, shop, suffix) {
+            var r = rand(3);
+            var name = '';
+            switch (r) {
+                case 0: name = adj + ' ' + shop + ' ' + suffix; break;
+                case 1: name = adj + ' ' + shop + ' — ' + suffix; break;
+                case 2: name = shop + ' by ' + adj + ' ' + suffix; break;
+            }
+            return name;
+        }
+
+        function generateNames() {
+            var adj = document.getElementById('adj').value.trim() || 'Amazing';
+            var shop = document.getElementById('shop').value.trim() || 'Foods';
+            var suffix = document.getElementById('suffix').value.trim() || 'Hub';
+            var count = parseInt(document.getElementById('count').value, 10) || 5;
+            var results = document.getElementById('results');
+            results.innerHTML = '';
+            for (var i = 0; i < count; i++) {
+                var name = composeName(adj, shop, suffix);
+                var chip = document.createElement('div');
+                chip.className = 'chip';
+                chip.textContent = name;
+                results.appendChild(chip);
+            }
+        }
+
+        function copyAll() {
+            var chips = document.querySelectorAll('#results .chip');
+            if (chips.length === 0) return alert('No names generated yet.');
+            var text = '';
+            for (var i = 0; i < chips.length; i++) { text += (i + 1) + '. ' + chips[i].textContent + '\n'; }
+            if (navigator.clipboard) { navigator.clipboard.writeText(text).then(() => alert('Copied to clipboard!')); }
+            else {
+                var ta = document.createElement('textarea');
+                ta.value = text; document.body.appendChild(ta); ta.select();
+                document.execCommand('copy'); ta.remove(); alert('Copied to clipboard!');
+            }
+        }
+
+        document.getElementById('generate').addEventListener('click', generateNames);
+        document.getElementById('copy').addEventListener('click', copyAll);
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>

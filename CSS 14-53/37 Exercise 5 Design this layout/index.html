@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddharth’s Web Development Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">Sid<span> Kesralikar</span></div>
+
+            <!-- Hamburger Menu -->
+            <div class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Body Section -->
+    <main class="main-content">
+        <section class="boxes-section">
+            <div class="box pink-box"></div>
+            <div class="box blue-box"></div>
+        </section>
+
+        <section class="curved-section">
+            <div class="curved-box">
+                <p>Welcome to <strong>Siddharth’s Web Development Hub</strong> — where simplicity meets precision. We
+                    create clean, scalable, and efficient digital solutions for modern businesses.</p>
+            </div>
+        </section>
+
+        <section class="scroll-content">
+            <p>We focus on building elegant and fast websites with modern technologies, ensuring both visual appeal and
+                functional depth. Every line of code and every pixel is crafted thoughtfully for impact and clarity.</p>
+
+            <p>Explore projects, connect with us, and discover how minimalism in design can deliver maximum performance
+                and meaning.</p>
+        </section>
+    </main>
+
+    <!-- Floating Button -->
+    <div class="floating-circle" title="Scroll to top"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Siddharth’s Web Development Hub. All rights reserved.</p>
+    </footer>
+
+    <!-- Script for scroll and menu -->
+    <script>
+        // Scroll to Top Button
+        const scrollBtn = document.querySelector('.floating-circle');
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Hamburger Menu
+        const toggle = document.getElementById('menu-toggle');
+        const nav = document.getElementById('nav-links');
+
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>
+

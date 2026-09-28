@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #e6f0f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background-color: #fff;
+  width: 320px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  background-color: #f2f4f7;
+  color: #555;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+
+.card-content h2 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.read-btn {
+  display: inline-block;
+  background-color: #e0ebff;
+  color: #0077ff;
+  border: none;
+  border-radius: 50px;
+  padding: 8px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.read-btn:hover {
+  background-color: #c8dcff;
+}
+
+    </style>
+</head>
+<body>
+    <body>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Lago di Braies">
+    <div class="card-content">
+      <div class="tags">
+        <span class="tag">Nature</span>
+        <span class="tag">Lake</span>
+      </div>
+      <h2>Lago di Braies</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+         Consectetur sodales morbi dignissim sed diam pharetra vitae ipsum odio.</p>
+      <button class="read-btn">Read More</button>
+    </div>
+  </div>
+</body>
+</body>
+</html>

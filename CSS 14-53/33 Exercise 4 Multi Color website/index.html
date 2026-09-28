@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multicolor Navbar</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* 🌈 Global Variables */
+:root {
+    --contrast: 1; /* Adjust this (0.5 - 1.5) to make colors duller or brighter */
+    --color-1: hsl(0, 85%, calc(50% * var(--contrast)));     /* Red */
+    --color-2: hsl(30, 85%, calc(50% * var(--contrast)));    /* Orange */
+    --color-3: hsl(210, 85%, calc(50% * var(--contrast)));   /* Blue */
+    --color-4: hsl(140, 85%, calc(45% * var(--contrast)));   /* Green */
+    --text-color: #fef1f1;
+    --nav-height: 60px;
+    --transition: 0.3s ease;
+    --contrast: 1.3;
+/* here we just changed the contrast of the navbar in the upper line  */
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* 🌈 Multicolor Navbar */
+.navbar {
+    height: var(--nav-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg,
+            var(--color-1),
+            var(--color-2),
+            var(--color-3),
+            var(--color-4));
+    padding: 0 20px;
+    color: var(--text-color);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    opacity: 0.8;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+}
+
+/* Button Styling */
+.btn {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 6px 14px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .nav-links {
+        display: none;
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Siddharth</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <button class="btn">Login</button>
+    </nav>
+</body>
+
+</html>
